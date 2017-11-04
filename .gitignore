@@ -1,3 +1,6 @@
 .idea
 .environment_in
 .environment_out
+dist
+node_modules
+package-lock.json
