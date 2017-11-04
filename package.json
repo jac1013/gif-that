@@ -1,0 +1,13 @@
+{
+  "name": "gif-that",
+  "version": "0.0.0",
+  "engines" : { "node" : ">=8" },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Joseph Arrieta <jac.wshmstr@gmail.com> (https://github.com/jac1013)",
+  "license": "MIT"
+}
