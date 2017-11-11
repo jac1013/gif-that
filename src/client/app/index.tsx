@@ -1,13 +1,13 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import {AppContainer} from "react-hot-loader";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
 
 const hotModule: any = module as any;
 
-import {Hello} from "./AwesomeComponent";
+import {Hello} from './components/Hellocomponent';
 
 function render(App: any) {
-  ReactDOM.render(<AppContainer><App/></AppContainer>, document.getElementById("app"));
+  ReactDOM.render(<AppContainer><App/></AppContainer>, document.getElementById('app'));
 }
 
 render(Hello);

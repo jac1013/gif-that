@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 interface State {
   number: number;
@@ -15,10 +15,10 @@ export class Hello extends React.Component<{}, State> {
 
   public render() {
     return (
-      <div>
+      <section>
         Hello World! {this.state.number}
         <button onClick={this.incrementNumber}>increment</button>
-      </div>
+      </section>
     );
   }
 
