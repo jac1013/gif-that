@@ -16,7 +16,7 @@ module.exports = {
     filename: 'bundle.js',
     path: BUILD_DIR
   },
-  devtool: 'source-map', //We use eval instead of source map because of hot reload.
+  devtool: 'eval', //We use eval instead of source map because of hot reload.
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json']

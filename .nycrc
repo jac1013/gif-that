@@ -1,0 +1,20 @@
+{
+    "include": [
+      "src/**/*.tsx"
+    ],
+    "exclude": [
+      "src/**/*.spec.tsx",
+      "typings"
+    ],
+    "extension": [
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "all": true,
+    "sourceMap": false
+}
