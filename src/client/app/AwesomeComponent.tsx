@@ -4,25 +4,25 @@ interface State {
   number: number;
 }
 
-export class Hello extends React.Component {
-   public state: State = {
-    number: 0
-  };
+export class Hello extends React.Component<{}, State> {
 
   constructor() {
     super();
-  }
-
-  private incrementNumber() {
-    this.setState({number: this.state.number + 1});
+    this.state = {
+      number: 0
+    };
   }
 
   public render() {
     return (
       <div>
         Hello World! {this.state.number}
-        <button onClick={this.incrementNumber.bind(this)}>increment</button>
+        <button onClick={this.incrementNumber}>increment</button>
       </div>
     );
+  }
+
+  private incrementNumber = () => {
+    this.setState({number: this.state.number + 1});
   }
 }
