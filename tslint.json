@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-eslint-rules"
+  ],
+  "jsRules": {},
+  "rules": {
+    "trailing-comma": false,
+    "interface-name": [true, "never-prefix"]
+  },
+  "rulesDirectory": []
+}
