@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CounterTest shouldRenderCorrectly 1`] = `
+<section>
+  Hello World! 
+  0
+  <button
+    onClick={[Function]}
+  >
+    increment
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    decrement
+  </button>
+</section>
+`;
