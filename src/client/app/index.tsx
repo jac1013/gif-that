@@ -1,16 +1,28 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
+import {App} from './components/App/App';
+
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import {counters} from './services/counter';
+
+const store = createStore(counters);
 
 const hotModule: any = module as any;
 
-import {Hello} from './components/Hellocomponent';
-
-function render(App: any) {
-  ReactDOM.render(<AppContainer><App/></AppContainer>, document.getElementById('app'));
+function render() {
+  ReactDOM.render(
+    <AppContainer>
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    </AppContainer>
+    , document.getElementById('app')
+  );
 }
 
-render(Hello);
+render();
 
 if (hotModule.hot) {
   hotModule.hot.accept();
