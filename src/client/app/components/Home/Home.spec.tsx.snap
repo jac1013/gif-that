@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeTest shouldRenderCorrectly 1`] = `
+<section>
+  This is our Home, go to the 
+  <a
+    href="/counter"
+    onClick={[Function]}
+  >
+    Counter!
+  </a>
+</section>
+`;
