@@ -8,15 +8,17 @@ import {createStore} from 'redux';
 import {counters} from './services/counter';
 
 const store = createStore(counters);
+import {BrowserRouter} from 'react-router-dom';
 
 const hotModule: any = module as any;
 
 function render() {
   ReactDOM.render(
     <AppContainer>
-      <Provider store={store}>
-        <App/>
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App/>
+        </Provider></BrowserRouter>
     </AppContainer>
     , document.getElementById('app')
   );

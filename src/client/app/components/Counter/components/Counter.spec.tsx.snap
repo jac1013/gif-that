@@ -14,5 +14,12 @@ exports[`CounterTest shouldRenderCorrectly 1`] = `
   >
     decrement
   </button>
+  We are done here, let's go to the 
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    Home
+  </a>
 </section>
 `;
