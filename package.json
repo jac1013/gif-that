@@ -11,7 +11,7 @@
     "start": "npm run lint && webpack-dev-server --open",
     "lint": "tslint -c tslint.json ./src/client/**/*.tsx",
     "test": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc --reporter=html --reporter=text mocha -r ts-node/register --watch --watch-extensions ts,tsx ./src/client/**/*.spec.tsx",
-    "test-once": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc --reporter=html --reporter=text  mocha -r ts-node/register ./src/client/**/*.spec.tsx"
+    "test-ci": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc --reporter=html --reporter=text  mocha -r ts-node/register ./src/client/**/*.spec.tsx"
   },
   "keywords": [],
   "author": "Joseph Arrieta <jac.wshmstr@gmail.com> (https://github.com/jac1013)",
