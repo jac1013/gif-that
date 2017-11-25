@@ -23,9 +23,4 @@ class CounterTest {
   shouldRenderCorrectly() {
     expect(this.component.toJSON()).to.matchSnapshot();
   }
-
-  @test
-  shouldHaveCorrectNumber() {
-    expect(this.component.toJSON().children).to.contain(this.number + '');
-  }
 }

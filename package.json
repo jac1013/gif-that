@@ -8,10 +8,18 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "npm run lint && webpack-dev-server --open",
+    "start": "npm run lint && webpack-dev-server --config webpack-dev.config.js --open",
+    "start-production": "webpack-dev-server --config webpack-prod.config.js",
     "lint": "tslint -c tslint.json ./src/client/**/*.tsx",
     "test": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc --reporter=html --reporter=text mocha -r ts-node/register --watch --watch-extensions ts,tsx ./src/client/**/*.spec.tsx",
-    "test-ci": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc --reporter=html --reporter=text  mocha -r ts-node/register ./src/client/**/*.spec.tsx"
+    "test-recreate-snapshots": "CHAI_JEST_SNAPSHOT_UPDATE_ALL=true npm t",
+    "test-ci": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc --reporter=html --reporter=text  mocha -r ts-node/register ./src/client/**/*.spec.tsx",
+    "test-end2end": "xvfb-maybe ./node_modules/.bin/nightwatch",
+    "test-end2end-headless": "xvfb-run --auto-servernum --server-num=1 ./node_modules/.bin/nightwatch",
+    "test-end2end-all": "npm run test-end2end -- -e default,firefox && npm run test-end2end-browserstack",
+    "test-end2end-headless-all": "npm run test-end2end-headless -- -e default,firefox && npm run test-end2end-browserstack",
+    "test-end2end-browserstack": "node browserstack-local-runner.js -c ./nightwatch-browserstack.conf.js -e default,safari",
+    "test-end2end-browserstack-ci": "node browserstack-local-runner.js -c ./nightwatch-browserstack.conf.js -e default,safari,chrome,firefox"
   },
   "keywords": [],
   "author": "Joseph Arrieta <jac.wshmstr@gmail.com> (https://github.com/jac1013)",
@@ -46,12 +54,16 @@
     "@types/redux": "^3.6.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
     "chai-jest-snapshot": "^2.0.0",
+    "core-js": "^2.5.1",
+    "dotenv": "^4.0.0",
     "lodash": "^4.17.4",
     "mocha-typescript": "^1.1.12",
+    "nightwatchjs-end2end": "^2.4.3",
     "react": "^16.0.0",
     "react-dom": "^16.1.0",
     "react-hot-loader": "^3.1.1",
@@ -61,6 +73,8 @@
     "redux": "^3.7.2",
     "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
-    "tslint-eslint-rules": "^4.1.1"
+    "tslint-eslint-rules": "^4.1.1",
+    "webpack-merge": "^4.1.1",
+    "whatwg-fetch": "^2.0.3"
   }
 }
