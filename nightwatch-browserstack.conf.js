@@ -1,5 +1,5 @@
 const desiredCapabilitiesIe11 = {
-  'build': 'NightwatchJS-end2end',
+  'build': 'React TypeScript Boilerplate',
   'browserstack.user': process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
   'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
   'browserstack.debug': true,
