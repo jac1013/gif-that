@@ -7,3 +7,10 @@ package-lock.json
 .babelrc
 .nyc_output
 coverage
+.env
+
+test_reports
+test_screenshots
+selenium-debug.log
+browserstack.err
+local.log

@@ -1,15 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CounterTest shouldRenderCorrectly 1`] = `
-<section>
+<section
+  className="counter"
+>
   Hello World! 
-  0
+  <span>
+    0
+  </span>
   <button
+    className="increment"
     onClick={[Function]}
   >
     increment
   </button>
   <button
+    className="decrement"
     onClick={[Function]}
   >
     decrement

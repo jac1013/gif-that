@@ -2,33 +2,31 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+require('dotenv').config();
 
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'src/client/app');
 
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
+    'whatwg-fetch',
+    'core-js/fn/promise',
+    'core-js/modules/es6.symbol',
     `${APP_DIR}/index.tsx`
   ],
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR
   },
-  devtool: 'eval', //We use eval instead of source map because of hot reload.
+  devtool: 'source-map', //We use eval instead of source map because of hot reload.
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([{
       from: 'src/client/index.html',
       to: 'index.html'
@@ -38,7 +36,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: ['react-hot-loader/webpack', 'awesome-typescript-loader'],
+        loader: [ 'awesome-typescript-loader'],
         exclude: `${__dirname}/node_modules`,
       },
 

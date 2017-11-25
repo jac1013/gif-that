@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomeTest shouldRenderCorrectly 1`] = `
-<section>
+<section
+  className="home"
+>
   This is our Home, go to the 
   <a
     href="/counter"
