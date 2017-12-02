@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --config webpack-prod.config.js",
     "start": "npm run lint && webpack-dev-server --config webpack-dev.config.js --open",
     "start-production": "webpack-dev-server --config webpack-prod.config.js",
     "lint": "tslint -c tslint.json ./src/client/**/*.tsx",
