@@ -2,14 +2,19 @@
 
 exports[`HomeTest shouldRenderCorrectly 1`] = `
 <section
-  className="home"
+  className="home-section"
 >
-  This is our Home, go to the 
-  <a
-    href="/counter"
-    onClick={[Function]}
+  <div
+    className="home-section__text"
   >
-    Counter!
-  </a>
+     Welcome to 
+    <a
+      className="home-section__counter-link"
+      href="/counter"
+      onClick={[Function]}
+    >
+      Counter!
+    </a>
+  </div>
 </section>
 `;

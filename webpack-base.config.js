@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const npm = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -13,6 +13,7 @@ module.exports = {
     'whatwg-fetch',
     'core-js/fn/promise',
     'core-js/modules/es6.symbol',
+    'react-hot-loader/patch',
     `${APP_DIR}/index.tsx`
   ],
   output: {
@@ -39,12 +40,8 @@ module.exports = {
         loader: ['react-hot-loader/webpack', 'awesome-typescript-loader'],
         exclude: `${__dirname}/node_modules`,
       },
-
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       {enforce: 'pre', test: /\.js$/, loader: 'source-map-loader'},
-      {
-        test: /\.css$/, use: ['style-loader', 'css-loader']
-      },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: ['file-loader']
