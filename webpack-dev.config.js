@@ -3,17 +3,27 @@ require('dotenv').config();
 const baseConfiguration = require('./webpack-base.config');
 const merge = require('webpack-merge');
 
-const development = merge(baseConfiguration)
-
 module.exports = merge(baseConfiguration, {
-  entry: [
-    'react-hot-loader/patch',
-  ],
   devServer: {
     contentBase: './dist',
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }, {
+          loader: "sass-loader" // compiles Sass to CSS
+        }
+        ]
+      }]
+  }
 });

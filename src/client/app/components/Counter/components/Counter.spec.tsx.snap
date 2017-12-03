@@ -2,30 +2,40 @@
 
 exports[`CounterTest shouldRenderCorrectly 1`] = `
 <section
-  className="counter"
+  className="counter-section"
 >
-  Hello World! 
-  <span>
-    0
-  </span>
-  <button
-    className="increment"
-    onClick={[Function]}
+  <div
+    className="counter-section__container"
   >
-    increment
-  </button>
-  <button
-    className="decrement"
-    onClick={[Function]}
+    <button
+      className="counter-section__container__button -regular increment"
+      onClick={[Function]}
+    >
+      +
+    </button>
+    <span
+      className="counter-section__container__number-display"
+    >
+      0
+    </span>
+    <button
+      className="counter-section__container__button -regular decrement"
+      onClick={[Function]}
+    >
+      -
+    </button>
+  </div>
+  <div
+    className="counter-section__back-home"
   >
-    decrement
-  </button>
-  We are done here, let's go to the 
-  <a
-    href="/"
-    onClick={[Function]}
-  >
-    Home
-  </a>
+    We are done here, let's go to the 
+    <a
+      className="counter-section__home-link"
+      href="/"
+      onClick={[Function]}
+    >
+      Home
+    </a>
+  </div>
 </section>
 `;

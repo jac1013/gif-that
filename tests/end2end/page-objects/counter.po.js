@@ -4,7 +4,12 @@ class Counter {
   constructor(browser) {
     this.browser = browser;
     this.HOME_SCREENSHOT_PATH = '/home';
-    new Home(this.browser).navigateToCounter();
+    this.COUNTER_SECTION = '.counter-section';
+    this.HOME_LINK = `${this.COUNTER_SECTION}__home-link`;
+    this.INCREMENT_BUTTON = `${this.COUNTER_SECTION}__container__button.increment`;
+    this.DECREMENT_BUTTON = `${this.COUNTER_SECTION}__container__button.decrement`;
+    this.home = new Home(this.browser);
+    this.home.navigateToCounter();
   }
 
   run() {
@@ -19,39 +24,39 @@ class Counter {
   }
 
   checkBeingInCounterSection() {
-    this.browser.expect.element('section.counter').to.be.visible;
+    this.browser.expect.element(this.COUNTER_SECTION).to.be.visible;
     return this;
   }
 
   checkIncrementButtonToBeVisible() {
-    this.browser.expect.element('button.increment').to.be.visible;
+    this.browser.expect.element(this.INCREMENT_BUTTON).to.be.present;
     return this;
   }
 
   checkDecrementButtonToBeVisible() {
-    this.browser.expect.element('button.decrement').to.be.visible;
+    this.browser.expect.element(this.DECREMENT_BUTTON).to.be.present;
     return this;
   }
 
   checkForAnchorToHome() {
-    this.browser.expect.element('section a').text.to.contain('Home');
+    this.browser.expect.element(this.HOME_LINK).text.to.contain('Home');
     return this;
   }
 
   checkIncrementFunctionality() {
-    this.browser.waitForElementPresent('button.increment')
-      .click('button.increment').expect.element('span').text.to.equal('1');
+    this.browser.waitForElementPresent(this.INCREMENT_BUTTON)
+      .click(this.INCREMENT_BUTTON).expect.element('span').text.to.equal('1');
     return this;
   }
 
   checkDecrementFunctionality() {
-    this.browser.waitForElementPresent('button.decrement')
-      .click('button.decrement').click('button.decrement').expect.element('span').text.to.equal('-1');
+    this.browser.waitForElementPresent(this.DECREMENT_BUTTON)
+      .click(this.DECREMENT_BUTTON).click(this.DECREMENT_BUTTON).expect.element('span').text.to.equal('-1');
     return this;
   }
 
   navigateToHome() {
-    this.browser.waitForElementPresent('section a').click('section a').expect.element('section.home').to.be.visible;
+    this.browser.waitForElementPresent(this.HOME_LINK).click(this.HOME_LINK).expect.element(this.home.HOME_SECTION).to.be.present;
     return this;
   }
 }
