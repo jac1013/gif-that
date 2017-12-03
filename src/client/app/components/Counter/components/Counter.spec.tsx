@@ -13,8 +13,8 @@ class CounterTest {
 
   before() {
     this.component = renderer.create(
-      <MemoryRouter><Counter incrementHandler={() => {
-      }} decrementHandler={() => {
+      <MemoryRouter><Counter increment={() => {
+      }} decrement={() => {
       }} number={this.number}/></MemoryRouter>
     );
   }

@@ -6,9 +6,9 @@ import {Link} from 'react-router-dom';
 export const Counter = (props: CounterViewProps) => (
   <section className='counter-section'>
     <div className="counter-section__container">
-      <button className='counter-section__container__button -regular increment' onClick={props.incrementHandler}>+</button>
+      <button className='counter-section__container__button -regular increment' onClick={props.increment}>+</button>
       <span className='counter-section__container__number-display'>{props.number}</span>
-      <button className='counter-section__container__button -regular decrement' onClick={props.decrementHandler}>-</button>
+      <button className='counter-section__container__button -regular decrement' onClick={props.decrement}>-</button>
     </div>
 
     <div className="counter-section__back-home">
