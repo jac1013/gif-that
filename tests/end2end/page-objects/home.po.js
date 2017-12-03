@@ -4,6 +4,8 @@ class Home {
   constructor(browser) {
     this.browser = browser;
     this.HOME_SCREENSHOT_PATH = '/home';
+    this.HOME_SECTION = '.home-section';
+    this.COUNTER_LINK = `${this.HOME_SECTION}__counter-link`;
     this.configureURL()
       .waitForBody();
   }
@@ -25,13 +27,13 @@ class Home {
   }
 
   checkCounterLink() {
-    this.browser.expect.element('section a').text.to.contain('Counter!');
+    this.browser.expect.element(this.COUNTER_LINK).text.to.contain('Counter!');
     this.browser.saveScreenshot(`${constants.SCREENSHOT_PATH}${this.HOME_SCREENSHOT_PATH}/home-page.png`);
     return this;
   }
 
   navigateToCounter() {
-    this.browser.waitForElementPresent('section a').click('section a').waitForElementNotPresent('section.home');
+    this.browser.waitForElementPresent(this.COUNTER_LINK).click(this.COUNTER_LINK).waitForElementNotPresent(this.HOME_SECTION);
     return this;
   }
 }

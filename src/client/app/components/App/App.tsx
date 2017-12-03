@@ -7,7 +7,7 @@ export const App = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route exact path='/counter' component={CounterContainer}/>
+      <Route path='/counter' component={CounterContainer}/>
     </Switch>
   </main>
 );
