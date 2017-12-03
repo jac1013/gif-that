@@ -2,14 +2,12 @@ import {increment, decrement} from '../../services/counter/actions';
 import {connect} from 'react-redux';
 import {Counter} from '../../components/Counter/components/Counter';
 import {getCounter} from '../../services/counter/index';
-
-export interface CounterState {
-  number: number;
-}
+import * as React from 'react';
+import {CounterState} from '../../services/counter/reducers';
 
 export interface CounterProps {
-  incrementHandler: any
-  decrementHandler: any
+  increment: (event: React.MouseEvent<HTMLInputElement>) => void;
+  decrement: (event: React.MouseEvent<HTMLInputElement>) => void;
 }
 
 export interface CounterViewProps extends CounterState, CounterProps {}
@@ -22,10 +20,10 @@ const mapStateToProps = (state: any) : CounterState => {
 
 const mapDispatchToProps = (dispatch: any) : CounterProps => {
   return {
-    incrementHandler: () => {
+    increment: () => {
       dispatch(increment());
     },
-    decrementHandler: () => {
+    decrement: () => {
       dispatch(decrement());
     }
   }
